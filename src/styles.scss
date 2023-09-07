@@ -1,1 +1,60 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+ 
+#app {
+    height: 100vh;
+
+    /* grid container settings */
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: 
+        'header'
+        'main'
+        'footer';
+}
+
+#app > header {
+    grid-area: header;
+    background-color: darkblue;
+    color:white;
+    padding-left: 20px;
+}
+
+.effect1{
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
+}
+      
+#app > main {
+    grid-area: main;
+    padding: 15px 20px 10px 20px;
+}
+
+#app > footer {
+    grid-area: footer;
+    background-color: darkblue;
+    color: white;
+    padding: 15px 20px 15px 20px;
+}
+ 
+.horizontal-menu {
+    list-style: none;
+    display: flex;
+    padding: 0;
+}
+
+.horizontal-menu li {
+    margin-right: 20px;
+}
+
+.horizontal-menu li:last-child {
+    margin-right: 0;
+}
+
+.horizontal-menu a {
+    text-decoration: none;
+    color: white;
+}
