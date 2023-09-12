@@ -6,12 +6,19 @@ import { AppComponent } from './app.component';
 import { DemoComponentComponent } from './components/demo-component/demo-component.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { AboutComponent } from './about/about.component';
+import { AboutComponent } from './components/about/about.component';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { ContactComponent } from './contact/contact.component';
-import { InvestmentListComponent } from './investment-list/investment-list.component'; // Import RouterModule and Routes
-import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './components/home/home.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { InvestmentListComponent } from './components/investment-list/investment-list.component'; // Import RouterModule and Routes
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
+import { provideAuth, getAuth } from '@angular/fire/auth';
+import { environment } from 'src/environments/environment';
+import { AuthService } from './services/auth.service';
+import { LoginComponent } from './components/login/login.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpAuthInterceptor } from './shared/http-auth.interceptor';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -20,7 +27,6 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent },
 ];
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +34,8 @@ const routes: Routes = [
     AboutComponent,
     HomeComponent,
     ContactComponent,
-    InvestmentListComponent
+    InvestmentListComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -36,9 +43,16 @@ const routes: Routes = [
     BrowserAnimationsModule,
     MatGridListModule,
     RouterModule.forRoot(routes),
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+    provideAuth(() => getAuth())
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    {provide: HTTP_INTERCEPTORS, useClass: HttpAuthInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

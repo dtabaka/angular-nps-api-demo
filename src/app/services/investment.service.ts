@@ -9,7 +9,8 @@ import { tap } from 'rxjs/operators';
 })
 export class InvestmentService {
 
-  private investmentUrl = "https://cloud-run-service-gxnjs4mbgq-uc.a.run.app/firestoredata";
+  //private investmentUrl = "https://cloud-run-service-gxnjs4mbgq-uc.a.run.app/firestoredata";
+  private investmentUrl = "https://firestore-apis---secure-cors-details-1bkt07r7.uc.gateway.dev/firestoredata-cloud-run";
 
   constructor(private http: HttpClient) { }
 
