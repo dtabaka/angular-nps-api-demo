@@ -2,7 +2,7 @@
 
 import { Injectable } from '@angular/core';
 import { Auth, provideAuth, getAuth, signInWithEmailAndPassword, signOut, User} from '@angular/fire/auth';
-import 'firebase/app';
+//import 'firebase/app';
 import { Subject } from 'rxjs';
 //import { User } from 'oidc-client';
 
