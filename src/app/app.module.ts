@@ -13,18 +13,24 @@ import { ContactComponent } from './components/contact/contact.component';
 import { InvestmentListComponent } from './components/investment-list/investment-list.component'; // Import RouterModule and Routes
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
-import { provideAuth, getAuth } from '@angular/fire/auth';
+import { provideAuth, getAuth, GoogleAuthProvider, FacebookAuthProvider, TwitterAuthProvider } from '@angular/fire/auth';
 import { environment } from 'src/environments/environment';
 import { AuthService } from './services/auth.service';
-import { LoginComponent } from './components/login/login.component';
+import { SignInWithEmailButtonComponent } from './components/sign-in-email-button/sign-in-email-button.component';
+import { SignInFacebookButtonComponent } from './components/sign-in-facebook-button/sign-in-facebook-button.component';
+import { SignInWithGoogleButtonComponent } from './components/sign-in-google-button/sign-in-google-button.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpAuthInterceptor } from './shared/http-auth.interceptor';
-
+import { SignInTwitterButtonComponent } from './components/sign-in-twitter-button/sign-in-twitter-button.component';
+import { ParksComponent } from './components/parks/parks.component';
+import { MaterialModule } from './modules/material/material.module';
+ 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
+  { path: 'parks', component: ParksComponent }
 ];
 
 @NgModule({
@@ -35,7 +41,11 @@ const routes: Routes = [
     HomeComponent,
     ContactComponent,
     InvestmentListComponent,
-    LoginComponent,
+    SignInWithEmailButtonComponent,
+    SignInFacebookButtonComponent,
+    SignInWithGoogleButtonComponent,
+    SignInTwitterButtonComponent,
+    ParksComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,12 +56,16 @@ const routes: Routes = [
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    MaterialModule,
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
     provideAuth(() => getAuth())
   ],
   providers: [
     AuthService,
-    {provide: HTTP_INTERCEPTORS, useClass: HttpAuthInterceptor, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass: HttpAuthInterceptor, multi: true},
+    GoogleAuthProvider,
+    FacebookAuthProvider,
+    TwitterAuthProvider
   ],
   bootstrap: [AppComponent]
 })

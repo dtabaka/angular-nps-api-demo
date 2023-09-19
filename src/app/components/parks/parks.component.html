@@ -1,0 +1,31 @@
+
+<div class="container">
+    <mat-form-field>
+        <mat-label>Input</mat-label>
+        <input matInput>
+    </mat-form-field>
+</div>
+
+<div class="container">
+    <div *ngFor="let park of response.data" >
+        <mat-card class="example-card">
+            <mat-card-header>
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title>{{park.fullName}}</mat-card-title>
+                <mat-card-subtitle>{{park.images[0].title}}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src="{{park.images[0].url}}" alt="Photo of a Shiba Inu">
+            <mat-card-content>
+                <p>
+                {{park.description}}
+                </p>
+            </mat-card-content>
+            <!-- <mat-card-actions>
+                <button mat-button>LIKE</button>
+                <button mat-button>SHARE</button>
+            </mat-card-actions> -->
+        </mat-card>
+    </div>
+</div>
+
+

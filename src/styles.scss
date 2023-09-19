@@ -1,4 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+// @tailwind base;
+// @tailwind components;
+// @tailwind utilities;
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
@@ -19,12 +25,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 #app > header {
     grid-area: header;
-    background-color: darkblue;
+    background-color: black;
     color:white;
     padding-left: 20px;
 }
 
-.effect1{
+.effect1 {
     box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
 }
       
@@ -35,7 +41,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 #app > footer {
     grid-area: footer;
-    background-color: darkblue;
+    background-color: black;
     color: white;
     padding: 15px 20px 15px 20px;
 }

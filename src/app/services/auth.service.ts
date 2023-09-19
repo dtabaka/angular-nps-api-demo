@@ -28,6 +28,15 @@ export class AuthService {
     })
   }
 
+  signInWithOAuthProviderComplete(user: User) {
+      this._user = user;
+      this._loginChangedSubject.next(true);
+  }
+
+  signOutWithProviderComplete() {
+    this._loginChangedSubject.next(true);
+  }
+
   isLoggedIn() : Promise<boolean> {
     if (this._user) {
       return this._user.getIdTokenResult().then(token => {

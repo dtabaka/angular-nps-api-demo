@@ -3,11 +3,11 @@ import { AuthService } from 'src/app/services/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: 'app-sign-in-email-button',
+  templateUrl: './sign-in-email-button.component.html',
+  styleUrls: ['./sign-in-email-button.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class SignInWithEmailButtonComponent implements OnInit {
  
   loginForm: FormGroup;
 
