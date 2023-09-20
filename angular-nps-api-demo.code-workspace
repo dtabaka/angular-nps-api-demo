@@ -1,13 +1,7 @@
 {
 	"folders": [
 		{
-			"path": "../angular-nps-api-demo"
-		},
-		{
-			"path": "../cloud-functions"
-		},
-		{
-			"path": "../cloud-run-service"
+			"path": "."
 		}
 	],
 	"settings": {}
