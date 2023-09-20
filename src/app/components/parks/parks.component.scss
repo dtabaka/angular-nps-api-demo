@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     gap: 20px;
     width: 750%; /* You can adjust the width as needed */
     margin: 0 auto; /* Horizontal centering */
@@ -13,6 +13,15 @@
   }
   
 .example-header-image {
-    background-image: url('/assets/images/nps_logo.jpg');
-    background-size: cover;
+    background-image: url('/assets/images/adventure-card-avatar.jpg');
+    background-size:cover;
+}
+
+mat-card {
+  transition: transform 0.2s ease; 
+}
+
+mat-card:hover {
+  transform: scale(1.04); /* Scale the element to 120% of its original size on hover */
+  cursor: pointer;
 }

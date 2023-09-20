@@ -1,6 +1,7 @@
 .header {
     display: flex;
     justify-content: flex-start;
+    font-size: 20pt;
 }
 
 .header div {
@@ -9,4 +10,8 @@
     align-items: center;
     justify-content: center;
     padding:10px;
+}
+
+nav {
+    padding:20px;
 }
