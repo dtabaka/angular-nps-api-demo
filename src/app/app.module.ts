@@ -33,9 +33,6 @@ const routes: Routes = [
   { path: 'parks', component: ParksComponent }
 ];
 
-
- 
-
 @NgModule({
   declarations: [
     AppComponent,
