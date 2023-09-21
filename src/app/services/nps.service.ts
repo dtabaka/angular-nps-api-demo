@@ -8,7 +8,8 @@ import { ParkResponse } from '../interfaces/park';
 })
 export class NpsService {
 
-  private url = "https://us-central1-gcp-developer-1.cloudfunctions.net/getNpsParks?searchTerm=cave";
+  private url = "https://firestore-apis---secure-cors-details-1bkt07r7.uc.gateway.dev/nps-cloud-function?searchTerm=cave";
+  //private url = "https://us-central1-gcp-developer-1.cloudfunctions.net/getNpsParks?searchTerm=cave";
 
   constructor(private http: HttpClient) { }
 
