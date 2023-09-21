@@ -2,6 +2,12 @@
 	"folders": [
 		{
 			"path": "."
+		},
+		{
+			"path": "../cloud-functions"
+		},
+		{
+			"path": "../cloud-run-service"
 		}
 	],
 	"settings": {}
