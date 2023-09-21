@@ -15,7 +15,7 @@
 
 FROM node:18-alpine
 WORKDIR /angular-nps-api-demo
-COPY ./ /aangular-nps-api-demo
+COPY ./ /angular-nps-api-demo
 RUN npm install -g @angular/cli
 RUN npm install
 RUN npm run build
