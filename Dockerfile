@@ -14,8 +14,8 @@
 #NOTE this is if you wanted to use express.js (You'll need the index.js file too!)
 
 FROM node:18-alpine
-WORKDIR /angular-nps-api-demo
-COPY ./ /angular-nps-api-demo
+WORKDIR /nginx-angular-nps
+COPY ./ /nginx-angular-nps
 RUN npm install -g @angular/cli
 RUN npm install
 RUN npm run build
