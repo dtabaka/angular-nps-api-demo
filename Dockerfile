@@ -14,11 +14,11 @@
 #NOTE this is if you wanted to use express.js (You'll need the index.js file too!)
 
 FROM node:18-alpine
-WORKDIR /angular-app
-COPY ./ /angular-app
+WORKDIR /angular-nps-api-demo
+COPY ./ /aangular-nps-api-demo
 RUN npm install -g @angular/cli
 RUN npm install
 RUN npm run build
 # NOTE: you'll need the --port switch as...gcloud run deploy --image gcr.io/gcp-developer-1/express-angular --port 4200  
-EXPOSE 4201
+EXPOSE 4200
 CMD [ "node", "index.js" ] 
